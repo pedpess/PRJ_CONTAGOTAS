@@ -8,7 +8,7 @@ import de.greenrobot.daogenerator.ToMany;
 
 public class MyDaoGenerator {
 
-    private static Schema schema = new Schema(3, "com.contagotas.data.DAO");
+    private static Schema schema = new Schema(3, "com.contagotas.contagotas.data.DAO");
 
     private static Entity mediaGastos = schema.addEntity("MediaGastos");
     private static Entity detalheGastos = schema.addEntity("DetalheGastos");
