@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">ContaGotas</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="title_welcome">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="btn.welcome.next">Continuar</string>
+    <string name="vezes.semana">vezes/semana</string>
+    <string name="min.dia">min/dia</string>
+    <string name="vezes.dia">vezes/dia</string>
+    <string name="main.btn.calcular">Calcular</string>
 </resources>
