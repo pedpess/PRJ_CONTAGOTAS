@@ -1,17 +1,28 @@
 package com.contagotas.contagotas;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.contagotas.contagotas.Util.DateHelper;
 import com.contagotas.contagotas.Util.SessionManager;
 import com.contagotas.contagotas.activities.BaseActivity;
+import com.contagotas.contagotas.activities.ResultActivity;
+import com.contagotas.contagotas.data.DAO.DetalheGastos;
+import com.contagotas.contagotas.data.DAO.DetalheGastosDao;
+import com.contagotas.contagotas.data.DAO.MediaGastos;
+import com.contagotas.contagotas.data.DAO.MediaGastosDao;
+
+import java.util.Date;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -28,6 +39,28 @@ public class MainActivity extends BaseActivity {
     RelativeLayout containerWelcome;
     @InjectView(R.id.container_data)
     RelativeLayout containerData;
+    @InjectView(R.id.ll_text_input_data)
+    LinearLayout llTextInputData;
+    @InjectView(R.id.edit_text_lavadeira)
+    EditText editTextLavadeira;
+    @InjectView(R.id.edit_text_tanque)
+    EditText editTextTanque;
+    @InjectView(R.id.edit_text_privada)
+    EditText editTextPrivada;
+    @InjectView(R.id.edit_text_pia_banheiro)
+    EditText editTextPiaBanheiro;
+    @InjectView(R.id.edit_text_chuveiro)
+    EditText editTextChuveiro;
+    @InjectView(R.id.edit_text_pia_cozinha)
+    EditText editTextPiaCozinha;
+    @InjectView(R.id.edit_text_lava_louca)
+    EditText editTextLavaLouca;
+    @InjectView(R.id.ll_input_data)
+    LinearLayout llInputData;
+    @InjectView(R.id.btnSaveData)
+
+    Button btnSaveData;
+    public static final String EXTRA_ID_RESULT_MEDIA_GASTOS = "result";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +68,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        createToolbar("Conta Gotas");
+        createToolbar(getResources().getString(R.string.app_name));
 
         if (SessionManager.getFromPrefs(getApplicationContext(), SessionManager.PREFS_FIRST_TIME_OPEN, "0").equals("0")) {
             containerWelcome.setVisibility(View.VISIBLE);
@@ -50,6 +83,40 @@ public class MainActivity extends BaseActivity {
                 containerData.setVisibility(View.VISIBLE);
             }
         });
+
+        btnSaveData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int maquina = (TextUtils.isEmpty(editTextLavadeira.getText().toString()) ? 0 : Integer.parseInt(editTextLavadeira.getText().toString()));
+                int tanque = (TextUtils.isEmpty(editTextTanque.getText().toString()) ? 0 : Integer.parseInt(editTextTanque.getText().toString()));
+                int privada = (TextUtils.isEmpty(editTextPrivada.getText().toString()) ? 0 : Integer.parseInt(editTextPrivada.getText().toString()));
+                int torneira = (TextUtils.isEmpty(editTextPiaBanheiro.getText().toString()) ? 0 : Integer.parseInt(editTextPiaBanheiro.getText().toString()));
+                int chuveiro = (TextUtils.isEmpty(editTextChuveiro.getText().toString()) ? 0 : Integer.parseInt(editTextChuveiro.getText().toString()));
+                int pia = (TextUtils.isEmpty(editTextPiaCozinha.getText().toString()) ? 0 : Integer.parseInt(editTextPiaCozinha.getText().toString()));
+                int lavaLouca = (TextUtils.isEmpty(editTextLavaLouca.getText().toString()) ? 0 : Integer.parseInt(editTextLavaLouca.getText().toString()));
+
+                MediaGastos mediaGastos = new MediaGastos(null, calculaMediaGastos(maquina, tanque, privada, torneira, chuveiro, pia, lavaLouca), DateHelper.getDateCurret(), false);
+                MediaGastosDao mediaGastosDao = MyApplication.mDaoSession.getMediaGastosDao();
+                long idMediaGastos = mediaGastosDao.insert(mediaGastos);
+                DetalheGastos detalheGastos = new DetalheGastos(null, idMediaGastos, maquina, tanque, privada, torneira, chuveiro, pia, lavaLouca, false);
+                DetalheGastosDao detalheGastosDao = MyApplication.mDaoSession.getDetalheGastosDao();
+                detalheGastosDao.insert(detalheGastos);
+
+                Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                intent.putExtra(EXTRA_ID_RESULT_MEDIA_GASTOS, idMediaGastos);
+                startActivity(intent);
+
+            }
+        });
+
+    }
+
+    private float calculaMediaGastos(int maquina, int tanque, int privada, int torneira, int chuveiro, int pia, int lavaLouca){
+
+        float resultado = (maquina * 19) + (tanque * 15) + (privada * 16) * (torneira * 15) + (chuveiro * 12) + (pia * 15) + (lavaLouca * 2);
+
+        return resultado;
 
     }
 
@@ -74,4 +141,6 @@ public class MainActivity extends BaseActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

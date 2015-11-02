@@ -7,9 +7,9 @@ package com.contagotas.contagotas.data.DAO;
 public class MediaGastos {
 
     private Long id;
-    private Integer total;
+    private Float total;
     private String data;
-    private String deleted;
+    private Boolean is_deleted;
 
     public MediaGastos() {
     }
@@ -18,11 +18,11 @@ public class MediaGastos {
         this.id = id;
     }
 
-    public MediaGastos(Long id, Integer total, String data, String deleted) {
+    public MediaGastos(Long id, Float total, String data, Boolean is_deleted) {
         this.id = id;
         this.total = total;
         this.data = data;
-        this.deleted = deleted;
+        this.is_deleted = is_deleted;
     }
 
     public Long getId() {
@@ -33,11 +33,11 @@ public class MediaGastos {
         this.id = id;
     }
 
-    public Integer getTotal() {
+    public Float getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(Float total) {
         this.total = total;
     }
 
@@ -49,12 +49,12 @@ public class MediaGastos {
         this.data = data;
     }
 
-    public String getDeleted() {
-        return deleted;
+    public Boolean getIs_deleted() {
+        return is_deleted;
     }
 
-    public void setDeleted(String deleted) {
-        this.deleted = deleted;
+    public void setIs_deleted(Boolean is_deleted) {
+        this.is_deleted = is_deleted;
     }
 
 }

@@ -8,7 +8,7 @@ import de.greenrobot.daogenerator.ToMany;
 
 public class MyDaoGenerator {
 
-    private static Schema schema = new Schema(3, "com.contagotas.contagotas.data.DAO");
+    private static Schema schema = new Schema(1, "com.contagotas.contagotas.data.DAO");
 
     private static Entity mediaGastos = schema.addEntity("MediaGastos");
     private static Entity detalheGastos = schema.addEntity("DetalheGastos");
@@ -36,7 +36,7 @@ public class MyDaoGenerator {
         detalheGastos.addIntProperty("chuveiro");
         detalheGastos.addIntProperty("pia");
         detalheGastos.addIntProperty("lava_louca");
-        detalheGastos.addStringProperty("deleted");
+        detalheGastos.addBooleanProperty("is_deleted");
 
         //region Relations
 
@@ -49,9 +49,9 @@ public class MyDaoGenerator {
     private static void createMediaGastos(Schema schema) {
 
         mediaGastos.addIdProperty().autoincrement().primaryKey().index();
-        mediaGastos.addIntProperty("total");
+        mediaGastos.addFloatProperty("total");
         mediaGastos.addStringProperty("data");
-        mediaGastos.addStringProperty("deleted");
+        mediaGastos.addBooleanProperty("is_deleted");
     }
 
 }

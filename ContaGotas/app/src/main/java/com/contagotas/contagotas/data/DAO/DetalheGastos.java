@@ -18,7 +18,7 @@ public class DetalheGastos {
     private Integer chuveiro;
     private Integer pia;
     private Integer lava_louca;
-    private String deleted;
+    private Boolean is_deleted;
 
     /** Used to resolve relations */
     private transient DaoSession daoSession;
@@ -37,7 +37,7 @@ public class DetalheGastos {
         this.id = id;
     }
 
-    public DetalheGastos(Long id, Long media_gastos_id, Integer maquina, Integer tanque, Integer privada, Integer torneira, Integer chuveiro, Integer pia, Integer lava_louca, String deleted) {
+    public DetalheGastos(Long id, Long media_gastos_id, Integer maquina, Integer tanque, Integer privada, Integer torneira, Integer chuveiro, Integer pia, Integer lava_louca, Boolean is_deleted) {
         this.id = id;
         this.media_gastos_id = media_gastos_id;
         this.maquina = maquina;
@@ -47,7 +47,7 @@ public class DetalheGastos {
         this.chuveiro = chuveiro;
         this.pia = pia;
         this.lava_louca = lava_louca;
-        this.deleted = deleted;
+        this.is_deleted = is_deleted;
     }
 
     /** called by internal mechanisms, do not call yourself. */
@@ -128,12 +128,12 @@ public class DetalheGastos {
         this.lava_louca = lava_louca;
     }
 
-    public String getDeleted() {
-        return deleted;
+    public Boolean getIs_deleted() {
+        return is_deleted;
     }
 
-    public void setDeleted(String deleted) {
-        this.deleted = deleted;
+    public void setIs_deleted(Boolean is_deleted) {
+        this.is_deleted = is_deleted;
     }
 
     /** To-one relationship, resolved on first access. */

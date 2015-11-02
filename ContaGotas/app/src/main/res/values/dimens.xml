@@ -6,4 +6,5 @@
     <dimen name="fontsize16sp">16sp</dimen>
     <dimen name="fontsize26sp">26sp</dimen>
     <dimen name="fontsize20dp">20sp</dimen>
+    <dimen name="result_text_description_top">50dp</dimen>
 </resources>
