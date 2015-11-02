@@ -35,7 +35,7 @@ public class DetalheGastosDao extends AbstractDao<DetalheGastos, Long> {
         public final static Property Chuveiro = new Property(6, Integer.class, "chuveiro", false, "CHUVEIRO");
         public final static Property Pia = new Property(7, Integer.class, "pia", false, "PIA");
         public final static Property Lava_louca = new Property(8, Integer.class, "lava_louca", false, "LAVA_LOUCA");
-        public final static Property Deleted = new Property(9, String.class, "deleted", false, "DELETED");
+        public final static Property Is_deleted = new Property(9, Boolean.class, "is_deleted", false, "IS_DELETED");
     };
 
     private DaoSession daoSession;
@@ -63,7 +63,7 @@ public class DetalheGastosDao extends AbstractDao<DetalheGastos, Long> {
                 "'CHUVEIRO' INTEGER," + // 6: chuveiro
                 "'PIA' INTEGER," + // 7: pia
                 "'LAVA_LOUCA' INTEGER," + // 8: lava_louca
-                "'DELETED' TEXT);"); // 9: deleted
+                "'IS_DELETED' INTEGER);"); // 9: is_deleted
         // Add Indexes
         db.execSQL("CREATE INDEX " + constraint + "IDX_DETALHE_GASTOS__id ON DETALHE_GASTOS" +
                 " (_id);");
@@ -125,9 +125,9 @@ public class DetalheGastosDao extends AbstractDao<DetalheGastos, Long> {
             stmt.bindLong(9, lava_louca);
         }
  
-        String deleted = entity.getDeleted();
-        if (deleted != null) {
-            stmt.bindString(10, deleted);
+        Boolean is_deleted = entity.getIs_deleted();
+        if (is_deleted != null) {
+            stmt.bindLong(10, is_deleted ? 1l: 0l);
         }
     }
 
@@ -156,7 +156,7 @@ public class DetalheGastosDao extends AbstractDao<DetalheGastos, Long> {
             cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6), // chuveiro
             cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7), // pia
             cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8), // lava_louca
-            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9) // deleted
+            cursor.isNull(offset + 9) ? null : cursor.getShort(offset + 9) != 0 // is_deleted
         );
         return entity;
     }
@@ -173,7 +173,7 @@ public class DetalheGastosDao extends AbstractDao<DetalheGastos, Long> {
         entity.setChuveiro(cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6));
         entity.setPia(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
         entity.setLava_louca(cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8));
-        entity.setDeleted(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
+        entity.setIs_deleted(cursor.isNull(offset + 9) ? null : cursor.getShort(offset + 9) != 0);
      }
     
     /** @inheritdoc */
