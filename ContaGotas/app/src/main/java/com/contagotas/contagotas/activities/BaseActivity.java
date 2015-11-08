@@ -18,14 +18,17 @@ public class BaseActivity extends AppCompatActivity {
 
         toolbar.getBackground().setAlpha(255);
         toolbar.setTitle(title);
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onBackPressed();
-//            }
-//        });
-
         setSupportActionBar(toolbar);
+        return toolbar;
+    }
+
+    public Toolbar createToolbarWithBack(String title){
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        toolbar.getBackground().setAlpha(255);
+        toolbar.setTitle(title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return toolbar;
     }
 

@@ -13,5 +13,10 @@
     <string name="title_result">Gratz ! You\'re the best !</string>
     <string name="descriptionResult">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</string>
     <string name="activity_result_toolbar">Resultado</string>
+    <string name="menu_historic">Histórico</string>
+    <string name="title_activity_historic">Histórico</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_historic_result">HistoricResultActivity</string>
 
 </resources>

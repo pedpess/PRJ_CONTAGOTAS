@@ -35,7 +35,7 @@ public class ResultActivity extends BaseActivity {
         setContentView(R.layout.activity_result);
         ButterKnife.inject(this);
 
-        createToolbar(getResources().getString(R.string.activity_result_toolbar));
+        createToolbarWithBack(getResources().getString(R.string.activity_result_toolbar));
 
         long idResult = getIntent().getExtras().getLong(MainActivity.EXTRA_ID_RESULT_MEDIA_GASTOS);
         setDataProgressBar(idResult);
@@ -49,7 +49,7 @@ public class ResultActivity extends BaseActivity {
         progressBarResult.setTextColor(getResources().getColor(R.color.primary_text));
         progressBarResult.setShowUnit(true);
         progressBarResult.setUnit("L");
-        progressBarResult.setValueAnimated(0, mediaGastos.getTotal(), 3600);
+        progressBarResult.setValueAnimated(0, mediaGastos.getTotal(), 1000);
         progressBarResult.setAutoTextSize(true);
 
 

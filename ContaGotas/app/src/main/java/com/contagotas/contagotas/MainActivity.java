@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.contagotas.contagotas.Util.DateHelper;
 import com.contagotas.contagotas.Util.SessionManager;
 import com.contagotas.contagotas.activities.BaseActivity;
+import com.contagotas.contagotas.activities.HistoricActivity;
 import com.contagotas.contagotas.activities.ResultActivity;
 import com.contagotas.contagotas.data.DAO.DetalheGastos;
 import com.contagotas.contagotas.data.DAO.DetalheGastosDao;
@@ -135,8 +136,8 @@ public class MainActivity extends BaseActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_history) {
+            startActivity(new Intent(this, HistoricActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
