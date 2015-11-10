@@ -48,7 +48,7 @@ public class ResultActivity extends BaseActivity {
         MediaGastos mediaGastos = mediaGastosDao.load(idResult);
         progressBarResult.setTextColor(getResources().getColor(R.color.primary_text));
         progressBarResult.setShowUnit(true);
-        progressBarResult.setUnit("L");
+        progressBarResult.setUnit(" litros");
         progressBarResult.setValueAnimated(0, mediaGastos.getTotal(), 1000);
         progressBarResult.setAutoTextSize(true);
 

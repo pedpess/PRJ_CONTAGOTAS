@@ -58,7 +58,7 @@ public class HistoricResultActivity extends BaseActivity {
         textviewPiaCozinha.setText(detalheGastos.getPia().toString());
         textviewTanque.setText(detalheGastos.getTanque().toString());
 
-        txtResultHistoric.setText(detalheGastos.getMediaGastos().getTotal().toString() + "l");
+        txtResultHistoric.setText(detalheGastos.getMediaGastos().getTotal().toString() + " litros");
     }
 
     @Override

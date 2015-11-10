@@ -1,23 +1,23 @@
 <resources>
-    <string name="app_name">ContaGotas</string>
+    <string name="app_name">Conta Gotas</string>
 
-    <string name="title_welcome">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</string>
+    <string name="title_welcome">Bem-vindo ao Conta Gotas!\n\nClicando em cada item, calcule o seu consumo individual de água no dia</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="btn.welcome.next">Continuar</string>
-    <string name="vezes.semana">vezes/semana</string>
-    <string name="min.dia">min/dia</string>
-    <string name="vezes.dia">vezes/dia</string>
+    <string name="vezes.semana">Vezes/Semana</string>
+    <string name="min.dia">Minutos/Dia</string>
+    <string name="vezes.dia">Vezes/Dia</string>
     <string name="main.btn.calcular">Calcular</string>
     <string name="title_activity_result">ResultActivity</string>
-    <string name="title_result">Gratz ! You\'re the best !</string>
-    <string name="descriptionResult">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</string>
+    <string name="title_result">Parabéns! Este é seu consumo diário total calculado</string>
+    <string name="descriptionResult">Consumo Total Diário</string>
     <string name="activity_result_toolbar">Resultado</string>
-    <string name="menu_historic">Histórico</string>
-    <string name="title_activity_historic">Histórico</string>
+    <string name="menu_historic">Histórico de Consumo</string>
+    <string name="title_activity_historic">Histórico de Consumo</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_historic_result">Detalhe do Histórico</string>
+    <string name="title_activity_historic_result">Detalhes do Histórico</string>
     <string name="txt_cozinha">Cozinha</string>
     <string name="txt_banheiro">Banheiro</string>
     <string name="txt_lavanderia">Lavanderia</string>
