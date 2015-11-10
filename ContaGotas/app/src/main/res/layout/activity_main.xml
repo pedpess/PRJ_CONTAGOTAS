@@ -91,6 +91,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/fontsize16sp"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:text="@string/txt_lavanderia"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="3">
@@ -143,6 +154,18 @@
                     android:text="@string/min.dia"
                     android:textColor="@color/primary_text" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/fontsize16sp"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:text="@string/txt_banheiro"/>
             </LinearLayout>
 
             <LinearLayout
@@ -227,6 +250,18 @@
                     android:text="@string/min.dia"
                     android:textColor="@color/primary_text" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/fontsize16sp"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:text="@string/txt_cozinha"/>
             </LinearLayout>
 
             <LinearLayout

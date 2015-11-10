@@ -1,5 +1,6 @@
 package com.contagotas.contagotas.activities;
 
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -28,6 +29,7 @@ public class BaseActivity extends AppCompatActivity {
         toolbar.getBackground().setAlpha(255);
         toolbar.setTitle(title);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_keyboard_arrow_left_black_24dp));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return toolbar;
     }

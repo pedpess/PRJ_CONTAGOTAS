@@ -16,7 +16,7 @@ import com.contagotas.contagotas.data.DAO.DetalheGastos;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class HistoricResultActivity extends AppCompatActivity {
+public class HistoricResultActivity extends BaseActivity {
 
     @InjectView(R.id.textview_lavadeira)
     TextView textviewLavadeira;
@@ -45,6 +45,7 @@ public class HistoricResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_historic_result);
         ButterKnife.inject(this);
 
+        createToolbarWithBack(getResources().getString(R.string.title_activity_historic_result));
         int key = getIntent().getExtras().getInt(RecyclerViewHistoricAdapter.TAG_POSITION);
 
         DetalheGastos detalheGastos = MyApplication.mDaoSession.getDetalheGastosDao().load(Long.parseLong(String.valueOf(key)));
@@ -63,7 +64,7 @@ public class HistoricResultActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_historic_result, menu);
+
         return true;
     }
 

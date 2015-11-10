@@ -40,6 +40,9 @@
         <activity
             android:name=".activities.HistoricResultActivity"
             android:label="@string/title_activity_historic_result" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.contagotas.contagotas.activities.HistoricActivity" />
         </activity>
     </application>
 

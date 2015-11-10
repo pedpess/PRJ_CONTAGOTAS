@@ -17,6 +17,9 @@
     <string name="title_activity_historic">Histórico</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_historic_result">HistoricResultActivity</string>
+    <string name="title_activity_historic_result">Detalhe do Histórico</string>
+    <string name="txt_cozinha">Cozinha</string>
+    <string name="txt_banheiro">Banheiro</string>
+    <string name="txt_lavanderia">Lavanderia</string>
 
 </resources>
